@@ -1,0 +1,28 @@
+###
+POST http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Para borrar",
+    "age": "10",
+    "email": "vjunquim@gmail.com" 
+}
+
+###
+GET http://localhost:9000/api/users HTTP/1.1
+
+###
+GET http://localhost:9000/api/users/643041ec0aa4ab9ab6cac086 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/users/643041ec0aa4ab9ab6cac086 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Ktitap Arevalo",
+    "age": 20,
+    "email": "karevalol@gmail.com" 
+}
+
+###
+DELETE http://localhost:9000/api/users/643047afb799af27f667c36b HTTP/1.1
