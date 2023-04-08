@@ -5,6 +5,9 @@ services:
     image: mongo
     container_name: mongodb
     restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ajunquit
+      MONGO_INITDB_ROOT_PASSWORD: ajunquit
     volumes:
       - mongodb_data:/data/db
     ports:
@@ -16,6 +19,9 @@ services:
     image: mongo-express
     container_name: mongo-express
     restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ajunquit
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ajunquit
     ports:
       - 8081:8081
     depends_on:
