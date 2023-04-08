@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - app_net
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    ports:
+      - 8081:8081
+    restart: always
+    depends_on:
+      - mongodb
+    networks:
+      - app_net
+  
+  mynodeapp:
+    image: mynodeapp:1.5
+    container_name: mynodeapp
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - mynodeapp_data:/data/app
+    networks:
+      - app_net
+    depends_on:
+      - mongodb
+
+networks:
+  app_net:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+  mynodeapp_data:
