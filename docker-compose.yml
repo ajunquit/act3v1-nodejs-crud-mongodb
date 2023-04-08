@@ -37,7 +37,7 @@ services:
     depends_on:
       - mongodb
 
-volumes:
-  webapp_data:
-  mongo-data:
-    driver: local
+# volumes:
+#   webapp_data:
+#   mongo-data:
+#     driver: local
