@@ -22,14 +22,14 @@ services:
     networks:
       - app_net
   
-  mynodeapp:
-    image: mynodeapp:1.6
-    container_name: mynodeapp
+  web:
+    image: app-web
+    container_name: web
     restart: always
     ports:
       - 3000:3000
     volumes:
-      - mynodeapp_data:/data/app
+      - webapp_data:/data/app
     networks:
       - app_net
     depends_on:
@@ -41,4 +41,4 @@ networks:
 
 volumes:
   mongodb_data:
-  mynodeapp_data:
+  webapp_data:
