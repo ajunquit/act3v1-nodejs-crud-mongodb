@@ -7,8 +7,8 @@ services:
     container_name: mongodb
     ports:
       - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
+    # volumes:
+    #   - mongo-data:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
@@ -32,8 +32,8 @@ services:
     restart: always
     ports:
       - 3000:3000
-    volumes:
-      - webapp_data:/data/app
+    # volumes:
+    #   - webapp_data:/data/app
     depends_on:
       - mongodb
 
