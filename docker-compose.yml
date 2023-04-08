@@ -1,51 +1,23 @@
 version: '3'
-
 services:
-  mongodb:
+  mongo:
     image: mongo
-    container_name: mongodb
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ajunquit
-      MONGO_INITDB_ROOT_PASSWORD: ajunquit
-    volumes:
-      - mongodb_data:/data/db
-    ports:
-      - 27017:27017
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
     networks:
-      - app_net
-
+      - my-network
   mongo-express:
     image: mongo-express
-    container_name: mongo-express
     restart: always
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: ajunquit
-      ME_CONFIG_MONGODB_ADMINPASSWORD: ajunquit
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
     ports:
-      - 8081:8081
-    depends_on:
-      - mongodb
+      - "8081:8081"
     networks:
-      - app_net
-  
-  web:
-    image: app-web
-    container_name: web
-    restart: always
-    ports:
-      - 3000:3000
-    volumes:
-      - webapp_data:/data/app
-    networks:
-      - app_net
-    depends_on:
-      - mongodb
-
+      - my-network
 networks:
-  app_net:
+  my-network:
     driver: bridge
-
-volumes:
-  mongodb_data:
-  webapp_data:
