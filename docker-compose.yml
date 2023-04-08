@@ -14,17 +14,16 @@ services:
 
   mongo-express:
     image: mongo-express
-    container_name: mongo-express
+    restart: always
     ports:
       - 8081:8081
-    restart: always
     depends_on:
       - mongodb
     networks:
       - app_net
   
   mynodeapp:
-    image: mynodeapp:1.5
+    image: mynodeapp:1.6
     container_name: mynodeapp
     restart: always
     ports:
