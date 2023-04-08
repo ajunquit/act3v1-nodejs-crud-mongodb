@@ -1,5 +1,9 @@
 version: '3.1'
 
+networks:
+  app_net:
+    driver: bridge
+
 services:
   mongodb:
     image: mongo
@@ -12,6 +16,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - app_net
 
   mongo-express:
     image: mongo-express
@@ -22,9 +28,11 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_SERVER: 172.31.92.136
+      ME_CONFIG_MONGODB_SERVER: mongodb
     depends_on:
       - mongodb
+    networks:
+      - app_net
 
   web:
     image: app-web
@@ -36,6 +44,8 @@ services:
       - webapp_data:/data/app
     depends_on:
       - mongodb
+    networks:
+      - app_net
 
 volumes:
   webapp_data:
