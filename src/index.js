@@ -31,7 +31,7 @@ app.get('/', (req,res) => {
 
 
 // const DB_URI = 'mongodb://root:example@54.166.241.34:27017/admin';
-const DB_URI = 'mongodb://root:example@172.31.92.136:27017/admin';
+const DB_URI = 'mongodb://root:example@172.31.92.136:27017/app_web';
 mongoose.connect(DB_URI)
     .then(() => console.log("connected to mongodb atlas"))
     .catch((error) => console.error(error));
