@@ -1,5 +1,5 @@
 
-Steps to raise this API
+Steps to setup this API in localhost.
 
 1. You must have a cluster created at https://www.mongodb.com/
 
