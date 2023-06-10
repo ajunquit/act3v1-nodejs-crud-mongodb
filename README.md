@@ -3,13 +3,13 @@ Steps to setup this API in localhost.
 
 1. You must have a cluster created at https://www.mongodb.com/
 
-- You should get the connection string. For example: mongodb+srv://ajunquit:<password>@cluster0.ojujxje.mongodb.net/?retryWrites=true&w=majority
+- You should get the connection string. For example: mongodb+srv://<user>:<password>@<domain>/?retryWrites=true&w=majority
 
 2. Clone this repository from github.
 
 3. Create .env file and create the following environment variable.
 
-MONGODB_URI=mongodb+srv://ajunquit:<password>@cluster0.ojujxje.mongodb.net/?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<user>:<password>@<domain>/?retryWrites=true&w=majority
 
 4. Run the command:
     npm install
