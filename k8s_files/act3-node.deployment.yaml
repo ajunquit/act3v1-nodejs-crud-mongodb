@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: act3-deployment
+  namespace: unir-act3-namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: act3nodejsmongo
+  template:
+    metadata:
+      labels:
+        app: act3nodejsmongo
+    spec:
+      containers:
+        - name: act3-contenedor
+          image: ajunquit/act3nodejsmongo:latest
+          ports:
+            - containerPort: 3000

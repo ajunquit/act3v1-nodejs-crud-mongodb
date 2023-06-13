@@ -1,0 +1,17 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mongodb-pvc
+  namespace: unir-act3-namespace
+  labels:
+    app: mongodb
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  accessModes:
+    - ReadWriteOnce
+  resources:     
+    requests:    
+      storage: 5Gi
+  storageClassName: gp2
